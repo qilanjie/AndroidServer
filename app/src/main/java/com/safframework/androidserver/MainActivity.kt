@@ -2,6 +2,7 @@ package com.safframework.androidserver
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.safframework.androidserver.databinding.ActivityMainBinding
 import com.safframework.androidserver.log.LogProxyImpl
 import com.safframework.androidserver.server.startHttpServer
 import com.safframework.androidserver.server.startWebSocketServer
@@ -9,7 +10,7 @@ import com.safframework.kotlin.coroutines.runInBackground
 import com.safframework.server.converter.gson.GsonConverter
 import com.safframework.server.core.AndroidServer
 import com.safframework.utils.localIPAddress
-import kotlinx.android.synthetic.main.activity_main.*
+
 
 
 /**
@@ -24,17 +25,19 @@ class MainActivity : AppCompatActivity(){
 
     private lateinit var androidServer: AndroidServer
     private val port = 8080
-
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
-
+//        setContentView(R.layout.activity_main)
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         initData()
     }
 
     private fun initData() {
-        content.text = "内网IP：$localIPAddress \nAndroidServer库在${port}端口提供服务"
+        binding.content.text = "内网IP：$localIPAddress \nAndroidServer库在${port}端口提供服务"
 
         runInBackground{ //  通过协程启动 AndroidServer
             androidServer = AndroidServer.Builder{

@@ -21,8 +21,8 @@ internal class AlpnHandler(
     private val consumer: Consumer<ChannelPipeline>,
     private val routeRegistry: RouteTable,
     private val builder: AndroidServer.Builder
-) : ApplicationProtocolNegotiationHandler(ApplicationProtocolNames.HTTP_1_1) {
 
+) : ApplicationProtocolNegotiationHandler(ApplicationProtocolNames.HTTP_1_1) {
     @Throws(Exception::class)
     override fun configurePipeline(ctx: ChannelHandlerContext, protocol: String) {
         if (ApplicationProtocolNames.HTTP_2 == protocol) {

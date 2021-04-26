@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+
 apply plugin: 'kotlin-android'
 
 def cfg = rootProject.ext.configuration // 配置
@@ -35,8 +35,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation "com.google.code.gson:gson:${libs.gson}"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation project(':core')
@@ -59,11 +59,11 @@ allprojects {
     }
 }
 
-publish{
-    userOrg = 'fengzhizi715'
-    groupId = 'com.safframework.server'
-    artifactId = 'android-server-converter-gson'
-    publishVersion = "$server_version"
-    desc = 'this is a server library for android,written by kotlin'
-    website = 'https://github.com/fengzhizi715/AndroidServer'
-}
+//publish{
+//    userOrg = 'fengzhizi715'
+//    groupId = 'com.safframework.server'
+//    artifactId = 'android-server-converter-gson'
+//    publishVersion = "$server_version"
+//    desc = 'this is a server library for android,written by kotlin'
+//    website = 'https://github.com/fengzhizi715/AndroidServer'
+//}
